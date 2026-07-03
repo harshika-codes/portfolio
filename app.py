@@ -1,29 +1,8 @@
-from flask import Flask, render_template, jsonify
-import requests
+from flask import Flask, render_template
 
-from scraper import (
-    get_amazon_data,
-    get_hackernews_data,
-    get_collegedunia_data,
-    get_dav_faculty_data,
-    get_flipkart_data
-)
-
-from scraper1 import (
-    get_amazon_data as get_dynamic_amazon_data,
-    get_youtube_data,
-    get_myntra_data,
-    get_indeed_data,
-    get_github_data
-)
-
-from scraper2 import (
-    get_gyan_setu_courses,
-    get_products_api_data,
-     get_currency_data,
-    get_countries_api_data,
-    get_jsonplaceholder_data
- )
+from scraper import get_amazon_data, get_hackernews_data, get_collegedunia_data, get_dav_faculty_data, get_flipkart_data
+from scraper1 import get_amazon_data as get_dynamic_amazon_data, get_youtube_data, get_myntra_data, get_indeed_data, get_github_data
+from scraper2 import get_gyan_setu_courses, get_products_api_data, get_currency_data, get_countries_api_data, get_jsonplaceholder_data
 app = Flask(__name__)
 
 # ---------------- HOME PAGES ----------------
