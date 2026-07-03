@@ -5,118 +5,326 @@
   <title>Harshika Portfolio</title>
 
   <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-    body {
-      margin: 0;
+    body{
       font-family: Arial, sans-serif;
       background: radial-gradient(circle at top, #1a1a2e, #0f0c29, #000);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      color:white;
+      text-align:center;
+      position:relative;
+      padding:20px;
     }
 
-    /* MAIN CONTAINER */
-    .container {
-      max-width: 650px;
-      padding: 40px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 0 40px rgba(124,77,255,0.15);
-      backdrop-filter: blur(10px);
-      animation: fadeIn 1s ease-in-out;
+    /* soft glowing blobs */
+    .blob{
+      position:absolute;
+      border-radius:50%;
+      filter: blur(90px);
+      opacity:0.28;
+      z-index:0;
+      animation: blobMove 9s ease-in-out infinite alternate;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    .blob1{
+      width:260px;
+      height:260px;
+      background:#7c4dff;
+      top:8%;
+      left:8%;
     }
 
-    /* TITLE */
-    h1 {
-      font-size: 52px;
-      margin-bottom: 10px;
-      text-shadow: 0 0 20px rgba(124,77,255,0.6);
+    .blob2{
+      width:220px;
+      height:220px;
+      background:#00e5ff;
+      bottom:8%;
+      right:10%;
+      animation-delay:2s;
     }
 
-    h1 span {
-      color: #7c4dff;
-      text-shadow: 0 0 25px #7c4dff;
+    .blob3{
+      width:170px;
+      height:170px;
+      background:#ff4ecd;
+      top:65%;
+      left:20%;
+      animation-delay:4s;
     }
 
-    /* TEXT */
-    p {
-      font-size: 18px;
-      color: #cfcfcf;
-      line-height: 1.6;
-      margin: 10px 0;
+    @keyframes blobMove{
+      from{ transform: translate(0,0) scale(1); }
+      to{ transform: translate(25px,20px) scale(1.12); }
     }
 
-    /* CARD */
-    .card {
-      margin-top: 20px;
-      padding: 15px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 15px;
-      border: 1px solid rgba(255,255,255,0.1);
+    /* sparkles */
+    .sparkle{
+      position:absolute;
+      width:4px;
+      height:4px;
+      background:white;
+      border-radius:50%;
+      box-shadow:0 0 10px white;
+      opacity:0.5;
+      animation: twinkle 3s infinite ease-in-out;
+      z-index:0;
     }
 
-    /* BUTTON */
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 28px;
-      background: linear-gradient(90deg, #7c4dff, #00e5ff);
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      box-shadow: 0 0 20px rgba(124,77,255,0.3);
+    .sparkle.s1{ top:15%; left:20%; animation-delay:0s; }
+    .sparkle.s2{ top:25%; right:18%; animation-delay:1s; }
+    .sparkle.s3{ bottom:20%; left:15%; animation-delay:2s; }
+    .sparkle.s4{ bottom:28%; right:22%; animation-delay:1.5s; }
+    .sparkle.s5{ top:45%; left:10%; animation-delay:0.8s; }
+    .sparkle.s6{ top:60%; right:12%; animation-delay:2.3s; }
+
+    @keyframes twinkle{
+      0%,100%{ opacity:0.2; transform:scale(1); }
+      50%{ opacity:1; transform:scale(1.8); }
     }
 
-    .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 30px rgba(124,77,255,0.6);
+    /* container */
+    .container{
+      position:relative;
+      z-index:2;
+      max-width:700px;
+      width:100%;
+      padding:45px;
+      background:rgba(255,255,255,0.06);
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 0 40px rgba(124,77,255,0.18);
+      backdrop-filter: blur(14px);
+      animation: floatCard 5s ease-in-out infinite;
     }
 
-    /* SECOND BUTTON */
-    .btn.secondary {
-      background: transparent;
-      border: 2px solid #7c4dff;
-      margin-left: 10px;
+    @keyframes floatCard{
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(-8px); }
     }
 
-    .btn.secondary:hover {
-      background: #7c4dff;
-      box-shadow: 0 0 25px #7c4dff;
+    /* sequential animation */
+    .fade1, .fade2, .fade3, .fade4{
+      opacity:0;
+      transform:translateY(20px);
+      animation: showUp 0.9s ease forwards;
     }
 
+    .fade1{ animation-delay:0.2s; }
+    .fade2{ animation-delay:0.8s; }
+    .fade3{ animation-delay:1.4s; }
+    .fade4{ animation-delay:2s; }
+
+    @keyframes showUp{
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    h1{
+      font-size:54px;
+      margin-bottom:12px;
+      text-shadow:0 0 18px rgba(124,77,255,0.55);
+      animation: glowPulse 2s ease-in-out infinite alternate;
+    }
+
+    h1 span{
+      color:#7c4dff;
+      text-shadow:0 0 24px #7c4dff;
+    }
+
+    @keyframes glowPulse{
+      from{ text-shadow:0 0 12px rgba(124,77,255,0.4); }
+      to{ text-shadow:0 0 28px rgba(124,77,255,0.85); }
+    }
+
+    .welcome{
+      font-size:20px;
+      color:#d9d9d9;
+      margin-bottom:18px;
+    }
+
+    p{
+      font-size:18px;
+      color:#d0d0d0;
+      line-height:1.7;
+      margin:10px 0;
+    }
+
+    .card{
+      position:relative;
+      margin-top:18px;
+      padding:20px;
+      background:rgba(255,255,255,0.07);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 0 20px rgba(0,0,0,0.15);
+      transition:0.35s ease;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      padding:1.5px;
+      border-radius:18px;
+      background:linear-gradient(120deg, #7c4dff, #00e5ff, #ff4ecd, #7c4dff);
+      background-size:300% 300%;
+      animation:borderMove 6s linear infinite;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+              mask-composite:exclude;
+      z-index:-1;
+    }
+
+    @keyframes borderMove{
+      0%{ background-position:0% 50%; }
+      100%{ background-position:100% 50%; }
+    }
+
+    .card:hover{
+      transform:translateY(-5px) scale(1.02);
+      box-shadow:0 0 28px rgba(124,77,255,0.22);
+    }
+
+    /* BUTTONS FIXED SIDE BY SIDE */
+    .btn-group{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      margin-top:28px;
+      flex-wrap:nowrap;   /* important */
+    }
+
+    .btn{
+      width:220px;
+      text-align:center;
+      display:inline-block;
+      padding:13px 20px;
+      background:linear-gradient(90deg, #7c4dff, #00e5ff);
+      color:white;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:bold;
+      transition:0.35s;
+      box-shadow:0 0 20px rgba(124,77,255,0.28);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px) scale(1.05);
+      box-shadow:0 0 30px rgba(124,77,255,0.55);
+    }
+
+    .btn::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-75%;
+      width:50%;
+      height:100%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+      transform:skewX(-20deg);
+      transition:0.8s;
+    }
+
+    .btn:hover::before{
+      left:130%;
+    }
+
+    .btn.secondary{
+      background:transparent;
+      border:2px solid #7c4dff;
+    }
+
+    .btn.secondary:hover{
+      background:#7c4dff;
+      box-shadow:0 0 25px #7c4dff;
+    }
+
+    /* responsive */
+    @media(max-width:768px){
+      .container{
+        padding:30px 20px;
+      }
+
+      h1{
+        font-size:38px;
+      }
+
+      .welcome{
+        font-size:17px;
+      }
+
+      .btn-group{
+        flex-direction:row;   /* yaha bhi row hi rahega */
+        justify-content:center;
+        gap:12px;
+      }
+
+      .btn{
+        width:180px;
+        font-size:14px;
+        padding:12px 14px;
+      }
+    }
+
+    @media(max-width:430px){
+      .btn-group{
+        flex-direction:column;   /* sirf bahut chhoti screen pe niche aayega */
+      }
+
+      .btn{
+        width:220px;
+      }
+    }
   </style>
 </head>
-
 <body>
+
+  <!-- background effects -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <div class="sparkle s1"></div>
+  <div class="sparkle s2"></div>
+  <div class="sparkle s3"></div>
+  <div class="sparkle s4"></div>
+  <div class="sparkle s5"></div>
+  <div class="sparkle s6"></div>
 
   <div class="container">
 
-    <h1>Hi, I'm <span>HARSHIKA</span> 👩‍💻</h1>
+    <h1 class="fade1">Hi, I'm <span>HARSHIKA</span> 👩‍💻</h1>
 
-    <p>Welcome to my personal portfolio website</p>
+    <div class="welcome fade2">Welcome to my personal portfolio website ✨</div>
 
-    <div class="card">
+    <div class="card fade3">
       <p>Computer Science Student | Web Developer | Flask Learner</p>
     </div>
 
-    <p>
+    <p class="fade3">
       I love building beautiful and functional websites using modern technologies.
     </p>
 
-    <!-- BUTTONS -->
-    <a class="btn" href="/portfolio">View Portfolio 🚀</a>
-    <a class="btn secondary" href="/learn-more">Learn More 📘</a>
+    <div class="btn-group fade4">
+      <a class="btn" href="/portfolio">View Portfolio 🚀</a>
+      <a class="btn secondary" href="/learn-more">Learn More 📘</a>
+    </div>
 
   </div>
 

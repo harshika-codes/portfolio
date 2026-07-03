@@ -41,9 +41,11 @@
             background:#2a2a40;
         }
 
+        /* BACK BUTTON UPPER LEFT */
         .back-btn{
-            display:inline-block;
-            margin-top:25px;
+            position:fixed;
+            top:20px;
+            left:20px;
             background:#7c4dff;
             color:white;
             text-decoration:none;
@@ -51,33 +53,41 @@
             border-radius:8px;
             font-weight:bold;
             box-shadow:0 0 10px rgba(124,77,255,0.6);
+            z-index:999;
         }
 
         .back-btn:hover{
             background:#6a3dff;
         }
+
+        /* content thoda neeche aaye */
+        .container{
+            margin-top:60px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Currency Exchange Rates</h1>
-
-    <table>
-        <tr>
-            <th>Currency</th>
-            <th>Rate</th>
-        </tr>
-
-        {% for item in data %}
-        <tr>
-            <td>{{ item.currency }}</td>
-            <td>{{ item.rate }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
-    <!-- Back button niche -->
+    <!-- Back button upar -->
     <a href="/api" class="back-btn">⬅ Back</a>
+
+    <div class="container">
+        <h1>Currency Exchange Rates</h1>
+
+        <table>
+            <tr>
+                <th>Currency</th>
+                <th>Rate</th>
+            </tr>
+
+            {% for item in data %}
+            <tr>
+                <td>{{ item.currency }}</td>
+                <td>{{ item.rate }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
 </body>
 </html>

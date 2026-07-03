@@ -2,98 +2,76 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import time
 
-# ---------------- amazon DYNAMIC ----------------
 
-def get_amazon_data():
-
+# ---------------- COMMON DRIVER ----------------
+def get_driver():
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--disable-notifications")
 
     driver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install()),
         options=options
     )
+    return driver
 
-    driver.get("https://www.amazon.in/s?k=mobile")
-    time.sleep(5)
 
+# ---------------- AMAZON DYNAMIC ----------------
+def get_amazon_data():
+    driver = get_driver()
     products = []
 
-    items = driver.find_elements(By.CSS_SELECTOR, "div[data-component-type='s-search-result']")
+    try:
+        driver.get("https://www.amazon.in/s?k=mobiles")
+        time.sleep(5)
 
-    for item in items[:10]:
-        try:
-            title = item.find_element(By.CSS_SELECTOR, "h2 span").text.strip()
-        except:
-            title = "N/A"
+        items = driver.find_elements(By.CSS_SELECTOR, "div[data-component-type='s-search-result']")
 
-        try:
-            price = item.find_element(By.CSS_SELECTOR, "span.a-price-whole").text.strip()
-        except:
-            price = "N/A"
-
-        # ⭐ rating fix
-        rating = "No Rating"
-
-        try:
-            rating = item.find_element(By.CSS_SELECTOR, "span.a-icon-alt").get_attribute("textContent").strip()
-        except:
-            pass
-
-        if not rating or rating == "No Rating":
+        for item in items[:10]:
             try:
-                rating = item.find_element(
-                    By.CSS_SELECTOR,
-                    "[aria-label*='out of 5 stars']"
-                ).get_attribute("aria-label").strip()
+                title = item.find_element(By.CSS_SELECTOR, "h2 span").text.strip()
             except:
-                rating = "No Rating"
+                title = "N/A"
 
-        if rating != "No Rating":
-            rating = rating.split(" ")[0]
+            try:
+                price = item.find_element(By.CSS_SELECTOR, "span.a-price-whole").text.strip()
+            except:
+                price = "N/A"
 
-        products.append({
-            "title": title,
-            "price": price,
-            "rating": rating
-        })
+            rating = "No Rating"
+            try:
+                rating = item.find_element(By.CSS_SELECTOR, "span.a-icon-alt").get_attribute("textContent").strip()
+            except:
+                pass
 
-    driver.quit()
+            if rating != "No Rating":
+                rating = rating.split(" ")[0]
+
+            products.append({
+                "title": title,
+                "price": price,
+                "rating": rating
+            })
+
+    finally:
+        driver.quit()
+
     return products
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-import time
 
 # ---------------- YOUTUBE DYNAMIC ----------------
 def get_youtube_data():
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.chrome.service import Service
-    from webdriver_manager.chrome import ChromeDriverManager
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    import time
-
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=options
-    )
-
+    driver = get_driver()
     videos = []
 
     try:
-        # Triggered Insaan search results
         driver.get("https://www.youtube.com/results?search_query=triggered+insaan")
 
-        # wait for video cards
         WebDriverWait(driver, 15).until(
             EC.presence_of_all_elements_located((By.XPATH, '//ytd-video-renderer'))
         )
@@ -128,36 +106,23 @@ def get_youtube_data():
                 "link": link
             })
 
-    except Exception as e:
-        print("YouTube scraping error:", e)
-
     finally:
         driver.quit()
 
     return videos
 
-# ---------------- MYNTRA DYNAMIC ----------------#
+
+# ---------------- MYNTRA DYNAMIC ----------------
 def get_myntra_data():
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.chrome.service import Service
-    from webdriver_manager.chrome import ChromeDriverManager
-    import time
-
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=options
-    )
-
+    driver = get_driver()
     products = []
 
     try:
-        # Myntra search page
         driver.get("https://www.myntra.com/men-tshirts")
-        time.sleep(6)
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "li.product-base"))
+        )
+        time.sleep(3)
 
         items = driver.find_elements(By.CSS_SELECTOR, "li.product-base")
 
@@ -172,13 +137,14 @@ def get_myntra_data():
             except:
                 title = "N/A"
 
+            price = "N/A"
             try:
                 price = item.find_element(By.CSS_SELECTOR, "span.product-discountedPrice").text.strip()
             except:
                 try:
                     price = item.find_element(By.CSS_SELECTOR, "span.product-price").text.strip()
                 except:
-                    price = "N/A"
+                    pass
 
             try:
                 original_price = item.find_element(By.CSS_SELECTOR, "span.product-strike").text.strip()
@@ -198,69 +164,41 @@ def get_myntra_data():
                 "discount": discount
             })
 
-    except Exception as e:
-        print("Myntra scraping error:", e)
-
     finally:
         driver.quit()
 
     return products
 
-# ---------------- INDEED DYNAMIC ----------------
+
 # ---------------- INDEED DYNAMIC ----------------
 def get_indeed_data():
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.chrome.service import Service
-    from webdriver_manager.chrome import ChromeDriverManager
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    import time
-
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=options
-    )
-
+    driver = get_driver()
     jobs = []
 
     try:
         driver.get("https://in.indeed.com/jobs?q=python+developer&l=India")
-        wait = WebDriverWait(driver, 20)
-
-        wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
         time.sleep(5)
 
-        driver.execute_script("window.scrollTo(0, 1200);")
-        time.sleep(2)
-        driver.execute_script("window.scrollTo(0, 0);")
-        time.sleep(2)
-
         items = driver.find_elements(By.CSS_SELECTOR, "div.job_seen_beacon")
-        print("Indeed items found:", len(items))
+        if not items:
+            items = driver.find_elements(By.CSS_SELECTOR, "div.slider_container")
 
         for item in items[:15]:
             title = "N/A"
             company = "N/A"
             location = "N/A"
 
-            # TITLE
             try:
-                title = item.find_element(By.CSS_SELECTOR, "h2.jobTitle a").text.strip()
+                title = item.find_element(By.CSS_SELECTOR, "h2.jobTitle").text.strip()
             except:
                 try:
-                    title = item.find_element(By.CSS_SELECTOR, "h2.jobTitle span").text.strip()
+                    title = item.find_element(By.CSS_SELECTOR, "a.jcs-JobTitle span").text.strip()
                 except:
-                    try:
-                        title = item.find_element(By.CSS_SELECTOR, "a.jcs-JobTitle").text.strip()
-                    except:
-                        pass
+                    pass
 
-            # COMPANY
             try:
                 company = item.find_element(By.CSS_SELECTOR, "[data-testid='company-name']").text.strip()
             except:
@@ -269,7 +207,6 @@ def get_indeed_data():
                 except:
                     pass
 
-            # LOCATION
             try:
                 location = item.find_element(By.CSS_SELECTOR, "[data-testid='text-location']").text.strip()
             except:
@@ -284,47 +221,26 @@ def get_indeed_data():
                 "location": location
             })
 
-    except Exception as e:
-        print("Indeed scraping error:", e)
-
     finally:
         driver.quit()
 
     return jobs
 
+
 # ---------------- GITHUB DYNAMIC ----------------
 def get_github_data():
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.chrome.service import Service
-    from webdriver_manager.chrome import ChromeDriverManager
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    import time
-
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--disable-notifications")
-
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=options
-    )
-
+    driver = get_driver()
     repos = []
 
     try:
         driver.get("https://github.com/trending")
 
-        wait = WebDriverWait(driver, 20)
-        wait.until(
+        WebDriverWait(driver, 20).until(
             EC.presence_of_all_elements_located((By.CSS_SELECTOR, "article.Box-row"))
         )
         time.sleep(3)
 
         items = driver.find_elements(By.CSS_SELECTOR, "article.Box-row")
-        print("GitHub repos found:", len(items))
 
         for item in items[:15]:
             name = "N/A"
@@ -333,7 +249,6 @@ def get_github_data():
             stars = "N/A"
             link = "N/A"
 
-            # repo name + link
             try:
                 repo_tag = item.find_element(By.CSS_SELECTOR, "h2 a")
                 name = repo_tag.text.strip().replace("\n", "").replace(" ", "")
@@ -341,25 +256,22 @@ def get_github_data():
             except:
                 pass
 
-            # description
             try:
                 description = item.find_element(By.CSS_SELECTOR, "p").text.strip()
             except:
-                description = "N/A"
+                pass
 
-            # language
             try:
                 language = item.find_element(By.CSS_SELECTOR, "span[itemprop='programmingLanguage']").text.strip()
             except:
-                language = "N/A"
+                pass
 
-            # stars
             try:
                 star_links = item.find_elements(By.CSS_SELECTOR, "a.Link--muted")
                 if len(star_links) > 0:
                     stars = star_links[0].text.strip()
             except:
-                stars = "N/A"
+                pass
 
             repos.append({
                 "name": name,
@@ -368,9 +280,6 @@ def get_github_data():
                 "stars": stars,
                 "link": link
             })
-
-    except Exception as e:
-        print("GitHub scraping error:", e)
 
     finally:
         driver.quit()

@@ -3,335 +3,811 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Harshika Portfolio</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#f3f2ff;
-    color:#222;
+    background:linear-gradient(135deg,#09051f,#130a35,#1b0f4d);
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* FLOATING BLOBS */
+.blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:0.28;
+    z-index:-1;
+    animation:float 8s ease-in-out infinite;
+}
+.blob1{
+    width:260px;
+    height:260px;
+    background:#7c4dff;
+    top:80px;
+    left:-50px;
+}
+.blob2{
+    width:220px;
+    height:220px;
+    background:#00d4ff;
+    top:300px;
+    right:-40px;
+    animation-delay:2s;
+}
+.blob3{
+    width:240px;
+    height:240px;
+    background:#ff4ecd;
+    bottom:30px;
+    left:35%;
+    animation-delay:4s;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-25px);}
 }
 
 /* HEADER */
 header{
-    background:#09052f;
-    color:white;
-    padding:20px 8%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    padding:18px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    background:rgba(7,5,25,0.75);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo{
-    font-size:22px;
-    font-weight:bold;
-    color:#b84cff;
+    font-size:28px;
+    font-weight:700;
+    color:#fff;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#c44dff;
+}
+
+nav{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:0 15px;
-    font-size:13px;
+    padding:10px 18px;
+    border-radius:30px;
+    transition:0.3s;
+    font-size:14px;
+    border:1px solid transparent;
 }
 
-/* HERO (UPDATED - CENTER CLEAN) */
-.hero{
-    background:#0b0638;
-    color:white;
-    min-height:500px;
-    padding:70px 8%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    flex-direction:column;
-}
-
-.hero h1{
-    font-size:45px;
-}
-
-.hero h1 span{
-    color:#c33cff;
-}
-
-.hero h3{
-    margin-top:10px;
-    color:#ddd;
-}
-
-.hero p{
-    margin-top:15px;
-    color:#ccc;
-    max-width:600px;
-}
-
-/* SECTION */
-section{
-    padding:35px 8%;
-}
-
-.title{
-    text-align:center;
-    color:#28145f;
-    margin-bottom:25px;
-}
-
-/* CARDS */
-.cards{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    flex:1;
-    min-width:250px;
-    box-shadow:0 5px 20px #ddd;
-}
-
-/* SKILLS */
-.skills{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.skill{
-    background:white;
-    width:150px;
-    padding:25px 10px;
-    text-align:center;
-    border-radius:15px;
-    box-shadow:0 5px 15px #ddd;
-}
-
-.skill h3{
-    color:#6c35ff;
-}
-
-/* PROJECT */
-.project{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    margin:15px;
-    box-shadow:0 5px 15px #ddd;
-}
-
-/* FOOTER */
-footer{
-    background:#17065a;
-    color:white;
-    padding:25px;
-    text-align:center;
-    border-radius:25px 25px 0 0;
-}
-
-/* LINKS */
-.social-links a{
-    display:inline-block;
-    margin:5px;
-    padding:8px 15px;
-    border-radius:20px;
-    text-decoration:none;
-    color:white;
-    font-size:13px;
-}
-
-.linkedin{
-    background:#0a66c2;
-}
-
-.github{
-    background:#111;
+nav a:hover{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    color:#d9c6ff;
 }
 
 /* BACK BUTTON */
 .back{
     position:fixed;
-    top:20px;
-    left:20px;
-    background:#7245ff;
+    top:18px;
+    left:18px;
+    z-index:1200;
+    background:linear-gradient(135deg,#7c4dff,#c44dff);
     color:white;
-    padding:12px 18px;
+    padding:11px 18px;
     border-radius:25px;
     text-decoration:none;
+    box-shadow:0 8px 22px rgba(0,0,0,0.28);
+    transition:0.3s;
     font-size:14px;
-    cursor:pointer;
-    z-index:9999;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+.back:hover{
+    transform:scale(1.08);
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    align-items:center;
+    gap:40px;
+    padding:60px 7% 40px;
+}
+
+.hero-left{
+    animation:slideLeft 1s ease;
+}
+@keyframes slideLeft{
+    from{opacity:0; transform:translateX(-50px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+.tag{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    margin-bottom:22px;
+    color:#ddd;
+    font-size:14px;
+}
+
+.hero-left h1{
+    font-size:62px;
+    line-height:1.1;
+    margin-bottom:16px;
+}
+
+.hero-left h1 span{
+    color:#d34dff;
+    text-shadow:0 0 20px rgba(211,77,255,0.5);
+}
+
+.hero-left h2{
+    font-size:24px;
+    color:#cfc8ff;
+    margin-bottom:18px;
+    min-height:35px;
+}
+
+.hero-left p{
+    max-width:620px;
+    color:#ddd;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.hero-btns{
+    display:flex;
+    gap:16px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:30px;
+    font-weight:600;
     transition:0.3s;
 }
 
-.back:hover{
-    transform:scale(1.1);
-    background:#c33cff;
+.btn-primary{
+    background:linear-gradient(90deg,#7c4dff,#00d4ff);
+    color:white;
+    box-shadow:0 0 25px rgba(124,77,255,0.35);
+}
+.btn-primary:hover{
+    transform:translateY(-4px) scale(1.03);
 }
 
+.btn-outline{
+    border:2px solid #7c4dff;
+    color:white;
+}
+.btn-outline:hover{
+    background:#7c4dff;
+    transform:translateY(-4px);
+}
+
+/* RIGHT HERO CARD */
+.hero-right{
+    display:flex;
+    justify-content:center;
+    animation:slideRight 1s ease;
+}
+@keyframes slideRight{
+    from{opacity:0; transform:translateX(50px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+.profile-card{
+    width:100%;
+    max-width:390px;
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:28px;
+    padding:30px;
+    backdrop-filter:blur(14px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    position:relative;
+    overflow:hidden;
+}
+
+.profile-card::before{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    background:linear-gradient(135deg,#7c4dff,#00d4ff);
+    border-radius:50%;
+    top:-40px;
+    right:-40px;
+    opacity:0.35;
+    filter:blur(20px);
+}
+
+.avatar{
+    width:120px;
+    height:120px;
+    margin:10px auto 20px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:48px;
+    background:linear-gradient(135deg,#7c4dff,#c44dff);
+    box-shadow:0 0 30px rgba(124,77,255,0.45);
+}
+
+.profile-card h3{
+    text-align:center;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.profile-card p{
+    text-align:center;
+    color:#d8d8e8;
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+.quick-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:18px;
+}
+
+.info-box{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:16px;
+    text-align:center;
+}
+
+.info-box h4{
+    color:#ffffff;
+    margin-bottom:6px;
+}
+.info-box p{
+    margin:0;
+    font-size:14px;
+}
+
+/* SECTIONS */
+section{
+    padding:90px 7% 40px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:40px;
+    position:relative;
+}
+
+.section-title::after{
+    content:"";
+    width:90px;
+    height:4px;
+    background:linear-gradient(90deg,#7c4dff,#00d4ff);
+    display:block;
+    margin:14px auto 0;
+    border-radius:10px;
+}
+
+/* ABOUT */
+.about-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.glass-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:24px;
+    padding:30px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.18);
+    transition:0.35s;
+}
+
+.glass-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(124,77,255,0.18);
+}
+
+.glass-card h3{
+    margin-bottom:16px;
+    font-size:28px;
+}
+
+.glass-card p{
+    color:#ddd;
+    line-height:1.9;
+    font-size:16px;
+}
+
+.social-links{
+    margin-top:18px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.social-links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:24px;
+    transition:0.3s;
+}
+.linkedin{background:#0a66c2;}
+.github{background:#111;border:1px solid rgba(255,255,255,0.1);}
+.social-links a:hover{transform:translateY(-3px);}
+
+/* EDUCATION TIMELINE */
+.timeline{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+    padding-left:30px;
+}
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:12px;
+    top:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(#7c4dff,#00d4ff);
+    border-radius:10px;
+}
+
+.timeline-item{
+    position:relative;
+    margin-bottom:28px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:20px;
+    padding:24px 24px 24px 30px;
+    backdrop-filter:blur(12px);
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-28px;
+    top:26px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#7c4dff;
+    box-shadow:0 0 20px #7c4dff;
+}
+
+.timeline-item h3{
+    margin-bottom:10px;
+    font-size:24px;
+}
+.timeline-item p{
+    color:#ddd;
+    line-height:1.8;
+}
+
+/* SKILLS */
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:22px;
+}
+
+.skill-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:22px;
+    padding:30px 20px;
+    text-align:center;
+    transition:0.35s;
+    backdrop-filter:blur(12px);
+}
+.skill-card:hover{
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:0 18px 35px rgba(124,77,255,0.18);
+}
+.skill-card .icon{
+    font-size:34px;
+    margin-bottom:12px;
+}
+.skill-card h3{
+    margin-bottom:8px;
+}
+.skill-card p{
+    color:#ddd;
+    font-size:14px;
+}
+
+/* PROJECTS */
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+}
+
+.project-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:24px;
+    padding:28px;
+    backdrop-filter:blur(12px);
+    transition:0.35s;
+    position:relative;
+    overflow:hidden;
+}
+.project-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(124,77,255,0.12),rgba(0,212,255,0.08));
+    opacity:0;
+    transition:0.35s;
+}
+.project-card:hover::before{
+    opacity:1;
+}
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(124,77,255,0.18);
+}
+.project-card h3{
+    position:relative;
+    z-index:2;
+    margin-bottom:12px;
+    font-size:25px;
+}
+.project-card p{
+    position:relative;
+    z-index:2;
+    color:#ddd;
+    line-height:1.8;
+}
+
+/* CONTACT */
+.contact-box{
+    max-width:850px;
+    margin:auto;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:26px;
+    padding:35px;
+    text-align:center;
+    backdrop-filter:blur(12px);
+}
+.contact-box h3{
+    font-size:32px;
+    margin-bottom:14px;
+}
+.contact-box p{
+    color:#ddd;
+    line-height:1.9;
+    font-size:17px;
+}
+
+/* FOOTER */
+footer{
+    margin-top:70px;
+    padding:28px;
+    text-align:center;
+    background:rgba(8,5,30,0.85);
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#ddd;
+}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-top:100px;
+    }
+
+    .hero-left p{
+        margin:auto;
+    }
+
+    .hero-btns{
+        justify-content:center;
+    }
+
+    .about-wrap{
+        grid-template-columns:1fr;
+    }
+
+    .hero-left h1{
+        font-size:48px;
+    }
+}
+
+@media(max-width:600px){
+    header{
+        flex-direction:column;
+        gap:14px;
+        padding-top:70px;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    .hero-left h1{
+        font-size:38px;
+    }
+
+    .hero-left h2{
+        font-size:18px;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .profile-card{
+        padding:24px 18px;
+    }
+
+    .back{
+        top:12px;
+        left:12px;
+        font-size:13px;
+        padding:10px 14px;
+    }
+}
 </style>
 </head>
-
 <body>
 
-<header>
-<div class="logo">N</div>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
 
-<nav>
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Skills</a>
-<a href="#">Projects</a>
-<a href="#">Contact</a>
-</nav>
+<!-- BACK BUTTON FIXED -->
+<a class="back" href="/">← Back</a>
+
+<header>
+    <div class="logo">Harshika<span>.</span></div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<!-- HERO (NO IMAGE) -->
-<div class="hero">
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-left">
+        <div class="tag">✨ My Creative Portfolio</div>
+        <h1><span>Building Ideas Into Web Experiences</span></h1>
+        <h2 id="typing"></h2>
+        <p>
+            I’m a Computer Science student who loves building modern websites,
+            Flask projects, and creative web experiences. I enjoy turning ideas into
+            beautiful and functional digital projects with clean design and smooth UI.
+        </p>
 
-<h1><span>HARSHIKA 🌸</span></h1>
+        <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary">View Projects 🚀</a>
+            <a href="#contact" class="btn btn-outline">Contact Me 💌</a>
+        </div>
+    </div>
 
-<h3>Aspiring Developer | Tech Enthusiast</h3>
-<h3>Aspiring Developer focused on building clean, efficient & user-friendly web solutions.</h3>
-<h3>Turning creativity into code and ideas into real-world web projects.</h3>
+    <div class="hero-right">
+        <div class="profile-card">
+            <div class="avatar">👩‍💻</div>
+            <h3>Harshika</h3>
+            <p>Aspiring Developer | Flask Learner | Tech Enthusiast</p>
 
-<p>
-I love building beautiful and functional websites
-using modern technologies.
-</p>
-
-</div>
+            <div class="quick-info">
+                <div class="info-box">
+                    <h4>Focus</h4>
+                    <p>Web Dev</p>
+                </div>
+                <div class="info-box">
+                    <h4>Tech</h4>
+                    <p>Python & Flask</p>
+                </div>
+                <div class="info-box">
+                    <h4>Interest</h4>
+                    <p>Data Science</p>
+                </div>
+                <div class="info-box">
+                    <h4>Projects</h4>
+                    <p>Web + ML</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- ABOUT -->
-<section>
-<h2 class="title">About Me</h2>
+<section id="about">
+    <h2 class="section-title">About Me</h2>
 
-<div class="cards">
+    <div class="about-wrap">
+        <div class="glass-card">
+            <h3>Who I Am</h3>
+            <p>
+                I am a Computer Science student passionate about Web Development,
+                Python, Flask, Data Science and building creative digital projects.
+                I enjoy learning new technologies and creating websites that are both
+                attractive and functional.
+            </p>
+        </div>
 
-<div class="card">
-<h3>About Me</h3>
-<p>
-I am a Computer Science student passionate about Web Development,
-Python, Data Science and creating innovative projects.
-</p>
-</div>
+        <div class="glass-card">
+            <h3>Connect With Me</h3>
+            <p>
+                📞 8818051138 <br><br>
+                ✉️ harshikakamboj9@gmail.com
+            </p>
 
-<div class="card">
-
-<h3>Contact</h3>
-<p>
-📞 8818051138<br><br>
-✉️ harshikakamboj9@gmail.com
-</p>
-
-<br>
-
-<div class="social-links">
-<a href="https://www.linkedin.com" target="_blank" class="linkedin">LinkedIn</a>
-<a href="https://github.com" target="_blank" class="github">GitHub</a>
-</div>
-
-</div>
-
-</div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com" target="_blank" class="linkedin">LinkedIn</a>
+                <a href="https://github.com" target="_blank" class="github">GitHub</a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- EDUCATION -->
-<section>
-<h2 class="title">Education</h2>
+<section id="education">
+    <h2 class="section-title">Education</h2>
 
-<div class="cards">
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>🎓 B.Tech Computer Science</h3>
+            <p>
+                Currently pursuing Computer Science Engineering from JMIETI, Radaur.  
+                Main focus areas include Web Development, Python, Flask and Data Science.
+            </p>
+        </div>
 
-<div class="card">
-<h3>🎓 B.Tech Computer Science</h3>
-<p>
-Currently pursuing Computer Science Engineering<br>
-from JMIETI, RADAUR<br>
-Focus: Web Development, Python, Data Science
-</p>
-</div>
-
-<div class="card">
-<h3>🏫 Schooling</h3>
-<p>
-Completed Higher Secondary Education<br>
-from DAV CENTENARY PUBLIC SCHOOL, RADAUR<br>
-Science & Mathematics background
-</p>
-</div>
-
-</div>
+        <div class="timeline-item">
+            <h3>🏫 Higher Secondary Education</h3>
+            <p>
+                Completed schooling from DAV Centenary Public School, Radaur with
+                Science and Mathematics background.
+            </p>
+        </div>
+    </div>
 </section>
 
 <!-- SKILLS -->
-<section>
-<h2 class="title">My Skills</h2>
+<section id="skills">
+    <h2 class="section-title">My Skills</h2>
 
-<div class="skills">
+    <div class="skills-grid">
+        <div class="skill-card">
+            <div class="icon">💻</div>
+            <h3>HTML / CSS / JS</h3>
+            <p>Frontend design and responsive layouts</p>
+        </div>
 
-<div class="skill"><h3>💻</h3>HTML CSS JS</div>
-<div class="skill"><h3>🐍</h3>Python</div>
-<div class="skill"><h3>⚙</h3>Flask</div>
-<div class="skill"><h3>📊</h3>Data Science</div>
-<div class="skill"><h3>🗄</h3>SQL</div>
+        <div class="skill-card">
+            <div class="icon">🐍</div>
+            <h3>Python</h3>
+            <p>Programming, logic building and backend basics</p>
+        </div>
 
-</div>
+        <div class="skill-card">
+            <div class="icon">⚙️</div>
+            <h3>Flask</h3>
+            <p>Building web apps and integrating APIs</p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">📊</div>
+            <h3>Data Science</h3>
+            <p>Learning analysis, ML concepts and data handling</p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">🗄️</div>
+            <h3>SQL</h3>
+            <p>Database basics and query handling</p>
+        </div>
+    </div>
 </section>
 
 <!-- PROJECTS -->
-<section>
-<h2 class="title">Projects</h2>
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
 
-<div class="project">
-<h3>Placement Prediction System</h3>
-<p>Machine learning based web application that predicts placement chances.</p>
-</div>
+    <div class="project-grid">
+        <div class="project-card">
+            <h3>Placement Prediction System</h3>
+            <p>
+                A machine learning based web application that predicts placement chances
+                using academic and performance related data.
+            </p>
+        </div>
 
-<div class="project">
-<h3>Web Scraping Project</h3>
-<p>Scraped data from websites using BeautifulSoup, Requests and Selenium.</p>
-</div>
+        <div class="project-card">
+            <h3>Web Scraping Project</h3>
+            <p>
+                Scraped data from multiple websites using BeautifulSoup, Requests and Selenium,
+                then displayed the results in a Flask web application.
+            </p>
+        </div>
 
+        <div class="project-card">
+            <h3>API Integration Project</h3>
+            <p>
+                Built pages to fetch and display API data like products, countries,
+                currency rates and posts in beautiful table layouts.
+            </p>
+        </div>
+    </div>
 </section>
 
-<!-- FOOTER -->
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="section-title">Contact</h2>
+
+    <div class="contact-box">
+        <h3>Let's Connect 💜</h3>
+        <p>
+            If you'd like to connect, collaborate, or just say hi — feel free to reach out. <br>
+            📧 harshikakamboj9@gmail.com <br>
+            📞 8818051138
+        </p>
+    </div>
+</section>
+
 <footer>
-<h3>Let's Connect!</h3>
-
-<p>
-📧 harshikakamboj9@gmail.com<br>
-LinkedIn | GitHub
-</p>
-
-<br>
-
-© 2026 Harshika Portfolio
+    © 2026 Harshika Portfolio | Made with 💜
 </footer>
 
-<!-- BACK BUTTON -->
-<a class="back" onclick="goBack()">← Back</a>
-
 <script>
-function goBack(){
-    if(document.referrer && document.referrer !== ""){
-        history.back();
-    } else {
-        window.location.href = "/";
+/* TYPING EFFECT */
+const text = "Web Development • Flask Projects • Creative UI Design";
+let i = 0;
+function typeEffect(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 70);
     }
 }
+typeEffect();
 </script>
 
 </body>

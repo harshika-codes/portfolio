@@ -53,47 +53,58 @@
             font-size:16px;
         }
 
+        /* BACK BUTTON UPPER LEFT */
         .back{
-            display:inline-block;
-            margin-top:30px;
-            padding:12px 25px;
-            background:#7c4dff;
-            color:white;
-            text-decoration:none;
-            border-radius:25px;
-            transition:0.3s;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 25px;
+            background: #7c4dff;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: 0.3s;
+            z-index: 999;
+            box-shadow: 0 0 12px rgba(124,77,255,0.5);
         }
 
         .back:hover{
             background:#5a2fd6;
             transform:scale(1.05);
         }
+
+        /* content neeche aaye */
+        .container{
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>{{ data.title }}</h1>
-
-    <div class="table-box">
-        <table>
-            <tr>
-                <th>Course Name</th>
-                <th>Mode</th>
-                <th>Duration</th>
-                
-            </tr>
-
-            {% for item in data.courses %}
-            <tr>
-                <td>{{ item.course_name }}</td>
-                <td>{{ item.mode }}</td>
-                <td>{{ item.duration }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-
+    <!-- Back button upar -->
     <a class="back" href="/api">← Back</a>
+
+    <div class="container">
+        <h1>{{ data.title }}</h1>
+
+        <div class="table-box">
+            <table>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Mode</th>
+                    <th>Duration</th>
+                </tr>
+
+                {% for item in data.courses %}
+                <tr>
+                    <td>{{ item.course_name }}</td>
+                    <td>{{ item.mode }}</td>
+                    <td>{{ item.duration }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 
 </body>
 </html>

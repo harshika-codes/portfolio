@@ -4,7 +4,7 @@
     <title>REST Countries API</title>
     <style>
         body{
-            font-family:Arial;
+            font-family: Arial;
             background:#0f0f1a;
             color:white;
             margin:0;
@@ -45,42 +45,60 @@
             border-radius:4px;
         }
 
+        /* BACK BUTTON UPPER LEFT */
         .back{
-            display:inline-block;
-            margin-top:30px;
-            padding:12px 24px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 24px;
             background:#7c4dff;
             color:white;
             text-decoration:none;
             border-radius:25px;
+            font-weight:bold;
+            z-index:999;
+            box-shadow:0 0 12px rgba(124,77,255,0.5);
+        }
+
+        .back:hover{
+            background:#5f35d4;
+            transform:scale(1.05);
+        }
+
+        /* content thoda neeche */
+        .container{
+            margin-top:60px;
         }
     </style>
 </head>
 <body>
 
-    <h1>REST Countries API Data</h1>
-
-    <table>
-        <tr>
-            <th>Flag</th>
-            <th>Country</th>
-            <th>Capital</th>
-            <th>Region</th>
-            <th>Population</th>
-        </tr>
-
-        {% for country in countries %}
-        <tr>
-            <td><img src="{{ country.flag }}" alt="flag"></td>
-            <td>{{ country.name }}</td>
-            <td>{{ country.capital }}</td>
-            <td>{{ country.region }}</td>
-            <td>{{ country.population }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
+    <!-- Back button upar -->
     <a class="back" href="/api">← Back</a>
+
+    <div class="container">
+        <h1>REST Countries API Data</h1>
+
+        <table>
+            <tr>
+                <th>Flag</th>
+                <th>Country</th>
+                <th>Capital</th>
+                <th>Region</th>
+                <th>Population</th>
+            </tr>
+
+            {% for country in countries %}
+            <tr>
+                <td><img src="{{ country.flag }}" alt="flag"></td>
+                <td>{{ country.name }}</td>
+                <td>{{ country.capital }}</td>
+                <td>{{ country.region }}</td>
+                <td>{{ country.population }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
 </body>
 </html>
