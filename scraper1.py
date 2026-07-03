@@ -5,14 +5,27 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import os
 
 
 # ---------------- COMMON DRIVER ----------------
 def get_driver():
     options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
+
+    # Render / Linux ke liye headless mode
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("--disable-notifications")
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--remote-debugging-port=9222")
+
+    # Render me Chrome binary ka path
+    chrome_bin = os.environ.get("CHROME_BIN", "/usr/bin/google-chrome")
+    if os.path.exists(chrome_bin):
+        options.binary_location = chrome_bin
 
     driver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install()),
