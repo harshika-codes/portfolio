@@ -1,7 +1,7 @@
 Flask 
 gunicorn
 requests
-beautifulspup
+beautifulsoup4
 selenium
 pandas
 webdriver-manager
