@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamic Scraping</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+    color: white;
+    margin: 0;
+}
+
+/* HEADER */
+h1{
+    text-align:center;
+    margin-top:40px;
+    font-size:38px;
+    color:#7c4dff;
+}
+
+.sub{
+    text-align:center;
+    opacity:0.8;
+    margin-top:5px;
+}
+
+/* CONTAINER */
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    margin-top:50px;
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    width:260px;
+    height:210px;
+    padding:20px;
+
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+
+    border-radius:18px;
+    box-shadow:0 0 20px rgba(124,77,255,0.25);
+
+    transition:0.3s;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 0 35px rgba(124,77,255,0.6);
+}
+
+/* ICON */
+.icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+/* TITLE */
+.card h2{
+    font-size:22px;
+    margin:5px 0;
+}
+
+/* TEXT */
+.card p{
+    font-size:13px;
+    opacity:0.85;
+}
+
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    margin:6px 5px 0 5px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#7c4dff;
+    color:white;
+    font-size:13px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+/* BACK */
+.back{
+    display:inline-block;
+    margin:50px auto;
+    padding:12px 25px;
+    background:#7c4dff;
+    border-radius:25px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>📄 Dynamic Scraping Websites</h1>
+<p class="sub">Selenium based real-world scraping projects</p>
+
+<div class="container">
+
+    <!-- AMAZON -->
+    <div class="card">
+        <div class="icon">🛒</div>
+        <h2>Amazon</h2>
+        <p>Product listing scraping</p>
+
+        <a class="btn" href="/amazon1">📊 View Table</a>
+        <a class="btn" href="https://www.amazon.com" target="_blank">🌐 View Site</a>
+    </div>
+
+    <!-- YOUTUBE -->
+    <div class="card">
+        <div class="icon">🎥</div>
+        <h2>YouTube</h2>
+        <p>Video data scraping</p>
+
+        <a class="btn" href="/youtube">📊 View Table</a>
+        <a class="btn" href="https://www.youtube.com" target="_blank">🌐 View Site</a>
+    </div>
+
+    <!-- MYNTRA -->
+<div class="card">
+    <div class="icon">🛍</div>
+    <h2>Myntra</h2>
+    <p>Fashion products scraping</p>
+
+    <a class="btn" href="/myntra">📊 View Table</a>
+    <a class="btn" href="https://www.myntra.com" target="_blank">🌐 View Site</a>
+</div>
+
+  <!-- GITHUB -->
+<div class="card">
+    <div class="icon">💻</div>
+    <h2>GitHub</h2>
+    <p>Trending repositories scraping</p>
+
+    <a class="btn" href="/github">📊 View Table</a>
+    <a class="btn" href="https://github.com/trending" target="_blank">🌐 View Site</a>
+</div>
+
+    <!-- INDEED -->
+    <div class="card">
+        <div class="icon">💼</div>
+        <h2>Indeed</h2>
+        <p>Job listings scraping</p>
+
+        <a class="btn" href="/indeed">📊 View Table</a>
+        <a class="btn" href="https://in.indeed.com" target="_blank">🌐 View Site</a>
+    </div>
+
+</div>
+
+<div style="text-align:center;">
+   <a class="back" href="/web-scraping">← Back</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>API Websites</title>
+
+<style>
+body{
+    font-family: Arial;
+    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+    color: white;
+    margin: 0;
+}
+
+h1{
+    text-align:center;
+    margin-top:40px;
+    font-size:38px;
+    color:#7c4dff;
+}
+
+.sub{
+    text-align:center;
+    opacity:0.8;
+    margin-top:5px;
+}
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    margin-top:50px;
+    padding:20px;
+}
+
+.card{
+    width:260px;
+    height:210px;
+    padding:20px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius:18px;
+    box-shadow:0 0 20px rgba(124,77,255,0.25);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 0 35px rgba(124,77,255,0.6);
+}
+
+.icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.card h2{
+    font-size:22px;
+    margin:5px 0;
+}
+
+.card p{
+    font-size:13px;
+    opacity:0.85;
+}
+
+.btn{
+    display:inline-block;
+    margin:6px 5px 0 5px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#7c4dff;
+    color:white;
+    font-size:13px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+.back{
+    display:inline-block;
+    margin:50px auto;
+    padding:12px 25px;
+    background:#7c4dff;
+    border-radius:25px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<h1>⚡ API Websites</h1>
+<p class="sub">API based project cards</p>
+
+<div class="container">
+
+    <div class="card">
+    <div class="icon">📘</div>
+    <h2>Gyan Setu API</h2>
+    <p>Learning and education related API data</p>
+
+    <a class="btn" href="/gyan-setu">📊 View Table</a>
+    <a class="btn" href="https://gyansetu.codroidhub.com/courses" target="_blank">🌐 View Site</a>
+</div>
+
+    <div class="card">
+        <div class="icon">🛒</div>
+        <h2>Products API</h2>
+        <p>Product data like name and price</p>
+        <a class="btn" href="/products-api" target="_blank">📊 View Table</a>
+        <a class="btn" href="https://dummyjson.com/docs/products?utm_source=chatgpt.com" target="_blank">🌐 View Site</a>
+    </div>
+
+    <div class="card">
+    <div class="icon">💱</div>
+    <h2>Currency API</h2>
+
+    <p>Live currency exchange rates like USD, INR, EUR and GBP using Currency API</p>
+    
+    <a class="btn" href="/currency-api" target="_blank">
+        📊 View Currency
+    </a>
+    
+    <a class="btn" href="https://www.exchangerate-api.com/" target="_blank">
+        🌐 View Site
+    </a>
+</div>
+
+    <div class="card">
+    <div class="icon">🌍</div>
+    <h2>REST Countries API</h2>
+    <p>Country name, capital, region, population and flag data</p>
+
+    <a class="btn" href="/countries-api" target="_blank" rel="noopener noreferrer">📊 View Table</a>
+    <a class="btn" href="https://restcountries.com/" target="_blank" rel="noopener noreferrer">🌐 View site</a>
+</div>
+
+    <div class="card">
+        <div class="icon">📰</div>
+        <h2>JSON Placeholder</h2>
+        <p>Fake posts and testing API data</p>
+       <a class="btn" href="/jsonplaceholder-api" target="_blank">📊 View Table</a>
+        <a class="btn" href="https://jsonplaceholder.typicode.com/" target="_blank">🌐 View Site</a>
+    </div>
+
+</div>
+
+<div style="text-align:center;">
+    <a class="back" href="/web-scraping">← Back</a>
+</div>
+
+</body>
+</html>

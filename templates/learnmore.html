@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Learn More</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial;
+    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+    color:white;
+}
+
+/* HEADER */
+h1{
+    text-align:center;
+    margin-top:50px;
+    font-size:52px;
+    color:#7c4dff;
+}
+
+.sub{
+    text-align:center;
+    opacity:0.85;
+    font-size:18px;
+}
+
+/* ✅ SAFE GRID (NO BREAK ISSUES) */
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(124,77,255,0.25);
+
+    transition:0.3s;
+
+    height:200px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:20px;
+}
+
+/* hover */
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 40px rgba(124,77,255,0.6);
+}
+
+/* TITLE */
+.card h2{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+/* TEXT */
+.card p{
+    font-size:15px;
+    opacity:0.85;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:15px;
+    padding:10px 20px;
+    border-radius:25px;
+    background:#7c4dff;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+/* BACK */
+.back{
+    display:inline-block;
+    margin:60px auto;
+    padding:14px 28px;
+    background:#7c4dff;
+    border-radius:30px;
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 900px){
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>📘 Learn More</h1>
+<p class="sub">Explore your projects step by step</p>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🌐 Web Scraping</h2>
+        <p>BeautifulSoup + Selenium + API projects</p>
+        <a class="btn" href="/web-scraping">View →</a>
+    </div>
+
+    <div class="card">
+        <h2>Minor Project 1</h2>
+        <p>Basic Flask + HTML project</p>
+        <a class="btn" href="/">View →</a>
+    </div>
+
+    <div class="card">
+        <h2>Minor Project 2</h2>
+        <p>Dynamic routing project</p>
+        <a class="btn" href="/portfolio">View →</a>
+    </div>
+
+    <div class="card">
+        <h2>🚀 Major Project</h2>
+        <p>Full advanced project dashboard</p>
+        <a class="btn" href="#">View →</a>
+    </div>
+
+</div>
+
+<div style="text-align:center;">
+    <a class="back" href="/">← Back Home</a>
+</div>
+
+</body>
+</html>

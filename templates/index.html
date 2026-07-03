@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Harshika Portfolio</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #1a1a2e, #0f0c29, #000);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 650px;
+      padding: 40px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 40px rgba(124,77,255,0.15);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* TITLE */
+    h1 {
+      font-size: 52px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(124,77,255,0.6);
+    }
+
+    h1 span {
+      color: #7c4dff;
+      text-shadow: 0 0 25px #7c4dff;
+    }
+
+    /* TEXT */
+    p {
+      font-size: 18px;
+      color: #cfcfcf;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    /* CARD */
+    .card {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, #7c4dff, #00e5ff);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 20px rgba(124,77,255,0.3);
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(124,77,255,0.6);
+    }
+
+    /* SECOND BUTTON */
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #7c4dff;
+      margin-left: 10px;
+    }
+
+    .btn.secondary:hover {
+      background: #7c4dff;
+      box-shadow: 0 0 25px #7c4dff;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Hi, I'm <span>HARSHIKA</span> 👩‍💻</h1>
+
+    <p>Welcome to my personal portfolio website</p>
+
+    <div class="card">
+      <p>Computer Science Student | Web Developer | Flask Learner</p>
+    </div>
+
+    <p>
+      I love building beautiful and functional websites using modern technologies.
+    </p>
+
+    <!-- BUTTONS -->
+    <a class="btn" href="/portfolio">View Portfolio 🚀</a>
+    <a class="btn secondary" href="/learn-more">Learn More 📘</a>
+
+  </div>
+
+</body>
+</html>

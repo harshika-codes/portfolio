@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dog API</title>
+    <style>
+        body{
+            font-family:Arial;
+            background:#0f0f1a;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        h1{
+            color:#7c4dff;
+        }
+
+        table{
+            width:60%;
+            margin:auto;
+            border-collapse:collapse;
+            background:#1a1a2e;
+        }
+
+        th, td{
+            padding:15px;
+            border:1px solid #444;
+        }
+
+        th{
+            background:#7c4dff;
+        }
+
+        img{
+            width:250px;
+            border-radius:12px;
+            margin-top:20px;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#7c4dff;
+            color:white;
+            text-decoration:none;
+            border-radius:20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dog API Data</h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>{{ dog.name }}</td>
+            <td>{{ dog.status }}</td>
+        </tr>
+    </table>
+
+    <img src="{{ dog.image }}" alt="Dog Image">
+
+    <br>
+    <a class="back" href="/api">← Back</a>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Dynamic Scraped Data</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial;
+            background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+            color:white;
+        }
+
+        .back-fixed{
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            padding: 10px 18px;
+            background:#7c4dff;
+            color:white;
+            border-radius:20px;
+            text-decoration:none;
+            font-size:14px;
+            transition:0.3s;
+            z-index:1000;
+        }
+
+        .back-fixed:hover{
+            background:#5a2fd6;
+            transform:scale(1.05);
+        }
+
+        h1{
+            text-align:center;
+            margin-top:40px;
+            color:#7c4dff;
+            font-size:38px;
+        }
+
+        table{
+            width:95%;
+            margin:30px auto;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        th, td{
+            padding:14px;
+            text-align:center;
+            border-bottom:1px solid rgba(255,255,255,0.1);
+        }
+
+        th{
+            background:#7c4dff;
+            color:white;
+        }
+
+        tr:hover{
+            background: rgba(124,77,255,0.15);
+        }
+
+        a{
+            color:#bfa3ff;
+            text-decoration:none;
+        }
+
+        a:hover{
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+
+<a href="/dynamic-scraping" class="back-fixed">← Back</a>
+
+<h1>💻 GitHub Dynamic Scraped Data</h1>
+
+<table>
+    <tr>
+        <th>Repository Name</th>
+        <th>Description</th>
+        <th>Language</th>
+        <th>Stars</th>
+        <th>Repo Link</th>
+    </tr>
+
+    {% for item in repos %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.language }}</td>
+        <td>{{ item.stars }}</td>
+        <td><a href="{{ item.link }}" target="_blank">Open Repo</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

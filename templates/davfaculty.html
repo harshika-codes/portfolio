@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DAV Faculty</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#0f0f1a;
+    color:white;
+}
+
+h1{
+    text-align:center;
+    margin-top:40px;
+    color:#7c4dff;
+}
+
+.back{
+    position:fixed;
+    top:10px;
+    left:10px;
+    padding:10px 15px;
+    background:#7c4dff;
+    color:white;
+    border-radius:20px;
+    text-decoration:none;
+}
+
+table{
+    width:90%;
+    margin:40px auto;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #333;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#7c4dff;
+}
+
+tr:hover{
+    background:#222;
+}
+
+</style>
+</head>
+
+<body>
+
+<a class="back" href="/static-scraping">← Back</a>
+
+<h1>🏫 DAV Teaching Faculty</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Qualification</th>
+    </tr>
+
+    {% for item in data %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.designation }}</td>
+        <td>{{ item.qualification }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

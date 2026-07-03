@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REST Countries API</title>
+    <style>
+        body{
+            font-family:Arial;
+            background:#0f0f1a;
+            color:white;
+            margin:0;
+            padding:30px;
+            text-align:center;
+        }
+
+        h1{
+            color:#7c4dff;
+            font-size:40px;
+            margin-bottom:30px;
+        }
+
+        table{
+            width:95%;
+            margin:auto;
+            border-collapse:collapse;
+            background:#1a1a2e;
+            box-shadow:0 0 20px rgba(124,77,255,0.25);
+        }
+
+        th, td{
+            padding:14px;
+            border:1px solid #444;
+            text-align:center;
+        }
+
+        th{
+            background:#7c4dff;
+        }
+
+        tr:nth-child(even){
+            background:#24243a;
+        }
+
+        img{
+            width:50px;
+            border-radius:4px;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:30px;
+            padding:12px 24px;
+            background:#7c4dff;
+            color:white;
+            text-decoration:none;
+            border-radius:25px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>REST Countries API Data</h1>
+
+    <table>
+        <tr>
+            <th>Flag</th>
+            <th>Country</th>
+            <th>Capital</th>
+            <th>Region</th>
+            <th>Population</th>
+        </tr>
+
+        {% for country in countries %}
+        <tr>
+            <td><img src="{{ country.flag }}" alt="flag"></td>
+            <td>{{ country.name }}</td>
+            <td>{{ country.capital }}</td>
+            <td>{{ country.region }}</td>
+            <td>{{ country.population }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a class="back" href="/api">← Back</a>
+
+</body>
+</html>

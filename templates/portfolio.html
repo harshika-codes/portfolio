@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Harshika Portfolio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f3f2ff;
+    color:#222;
+}
+
+/* HEADER */
+header{
+    background:#09052f;
+    color:white;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#b84cff;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:13px;
+}
+
+/* HERO (UPDATED - CENTER CLEAN) */
+.hero{
+    background:#0b0638;
+    color:white;
+    min-height:500px;
+    padding:70px 8%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:45px;
+}
+
+.hero h1 span{
+    color:#c33cff;
+}
+
+.hero h3{
+    margin-top:10px;
+    color:#ddd;
+}
+
+.hero p{
+    margin-top:15px;
+    color:#ccc;
+    max-width:600px;
+}
+
+/* SECTION */
+section{
+    padding:35px 8%;
+}
+
+.title{
+    text-align:center;
+    color:#28145f;
+    margin-bottom:25px;
+}
+
+/* CARDS */
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    flex:1;
+    min-width:250px;
+    box-shadow:0 5px 20px #ddd;
+}
+
+/* SKILLS */
+.skills{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.skill{
+    background:white;
+    width:150px;
+    padding:25px 10px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 15px #ddd;
+}
+
+.skill h3{
+    color:#6c35ff;
+}
+
+/* PROJECT */
+.project{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin:15px;
+    box-shadow:0 5px 15px #ddd;
+}
+
+/* FOOTER */
+footer{
+    background:#17065a;
+    color:white;
+    padding:25px;
+    text-align:center;
+    border-radius:25px 25px 0 0;
+}
+
+/* LINKS */
+.social-links a{
+    display:inline-block;
+    margin:5px;
+    padding:8px 15px;
+    border-radius:20px;
+    text-decoration:none;
+    color:white;
+    font-size:13px;
+}
+
+.linkedin{
+    background:#0a66c2;
+}
+
+.github{
+    background:#111;
+}
+
+/* BACK BUTTON */
+.back{
+    position:fixed;
+    top:20px;
+    left:20px;
+    background:#7245ff;
+    color:white;
+    padding:12px 18px;
+    border-radius:25px;
+    text-decoration:none;
+    font-size:14px;
+    cursor:pointer;
+    z-index:9999;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.back:hover{
+    transform:scale(1.1);
+    background:#c33cff;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">N</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Skills</a>
+<a href="#">Projects</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<!-- HERO (NO IMAGE) -->
+<div class="hero">
+
+<h1><span>HARSHIKA 🌸</span></h1>
+
+<h3>Aspiring Developer | Tech Enthusiast</h3>
+<h3>Aspiring Developer focused on building clean, efficient & user-friendly web solutions.</h3>
+<h3>Turning creativity into code and ideas into real-world web projects.</h3>
+
+<p>
+I love building beautiful and functional websites
+using modern technologies.
+</p>
+
+</div>
+
+<!-- ABOUT -->
+<section>
+<h2 class="title">About Me</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>About Me</h3>
+<p>
+I am a Computer Science student passionate about Web Development,
+Python, Data Science and creating innovative projects.
+</p>
+</div>
+
+<div class="card">
+
+<h3>Contact</h3>
+<p>
+📞 8818051138<br><br>
+✉️ harshikakamboj9@gmail.com
+</p>
+
+<br>
+
+<div class="social-links">
+<a href="https://www.linkedin.com" target="_blank" class="linkedin">LinkedIn</a>
+<a href="https://github.com" target="_blank" class="github">GitHub</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+<h2 class="title">Education</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🎓 B.Tech Computer Science</h3>
+<p>
+Currently pursuing Computer Science Engineering<br>
+from JMIETI, RADAUR<br>
+Focus: Web Development, Python, Data Science
+</p>
+</div>
+
+<div class="card">
+<h3>🏫 Schooling</h3>
+<p>
+Completed Higher Secondary Education<br>
+from DAV CENTENARY PUBLIC SCHOOL, RADAUR<br>
+Science & Mathematics background
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section>
+<h2 class="title">My Skills</h2>
+
+<div class="skills">
+
+<div class="skill"><h3>💻</h3>HTML CSS JS</div>
+<div class="skill"><h3>🐍</h3>Python</div>
+<div class="skill"><h3>⚙</h3>Flask</div>
+<div class="skill"><h3>📊</h3>Data Science</div>
+<div class="skill"><h3>🗄</h3>SQL</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+<h2 class="title">Projects</h2>
+
+<div class="project">
+<h3>Placement Prediction System</h3>
+<p>Machine learning based web application that predicts placement chances.</p>
+</div>
+
+<div class="project">
+<h3>Web Scraping Project</h3>
+<p>Scraped data from websites using BeautifulSoup, Requests and Selenium.</p>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<h3>Let's Connect!</h3>
+
+<p>
+📧 harshikakamboj9@gmail.com<br>
+LinkedIn | GitHub
+</p>
+
+<br>
+
+© 2026 Harshika Portfolio
+</footer>
+
+<!-- BACK BUTTON -->
+<a class="back" onclick="goBack()">← Back</a>
+
+<script>
+function goBack(){
+    if(document.referrer && document.referrer !== ""){
+        history.back();
+    } else {
+        window.location.href = "/";
+    }
+}
+</script>
+
+</body>
+</html>

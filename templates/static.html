@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Static Scraping</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+    color: white;
+    margin: 0;
+}
+
+/* HEADER */
+h1{
+    text-align:center;
+    margin-top:40px;
+    font-size:38px;
+    color:#7c4dff;
+}
+
+.sub{
+    text-align:center;
+    opacity:0.8;
+    margin-top:5px;
+}
+
+/* CONTAINER */
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    margin-top:50px;
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    width:260px;
+    height:210px;
+    padding:20px;
+
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+
+    border-radius:18px;
+    box-shadow:0 0 20px rgba(124,77,255,0.25);
+
+    transition:0.3s;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 0 35px rgba(124,77,255,0.6);
+}
+
+/* ICON */
+.icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+/* TITLE */
+.card h2{
+    font-size:22px;
+    margin:5px 0;
+}
+
+/* TEXT */
+.card p{
+    font-size:13px;
+    opacity:0.85;
+}
+
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    margin:6px 5px 0 5px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#7c4dff;
+    color:white;
+    font-size:13px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+/* BACK */
+.back{
+    display:inline-block;
+    margin:50px auto;
+    padding:12px 25px;
+    background:#7c4dff;
+    border-radius:25px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>📄 Static Scraping Websites</h1>
+<p class="sub">BeautifulSoup based real scraping projects</p>
+
+<div class="container">
+
+    <!-- AMAZON -->
+    <div class="card">
+        <div class="icon">🛒</div>
+        <h2>Test Sites Laptop</h2>
+        <p>Product data scraping</p>
+
+        <a class="btn" href="/amazon">📊 View Table</a>
+        <a class="btn" href="https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops" target="_blank">
+            🌐 View Site
+        </a>
+    </div>
+
+    <!-- HACKER NEWS -->
+    <div class="card">
+        <div class="icon">📰</div>
+        <h2>Hacker News</h2>
+        <p>News titles & links</p>
+
+        <a class="btn" href="/hackernews">📊 View Table</a>
+        <a class="btn" href="https://news.ycombinator.com/" target="_blank">
+            🌐 View Site
+        </a>
+    </div>
+
+    <!-- COLLEGE -->
+    <div class="card">
+        <div class="icon">🎓</div>
+        <h2>Collegedunia</h2>
+        <p>College info scraping</p>
+
+        <a class="btn" href="/collegedunia">📊 View Table</a>
+        <a class="btn" href="https://collegedunia.com/"target="_blank">
+            🌐 View Site
+        </a>
+    </div>
+
+    <!-- SCHOOL -->
+    <div class="card">
+        <div class="icon">🏫</div>
+        <h2>DAV School</h2>
+        <p>School data scraping</p>
+
+        <a class="btn" href="/dav-faculty">📊 View Table</a>
+        <a class="btn" href="http://davpsr.in/ACF50813-80CC-47E7-B816-72DC22D44C78/CMS/Page/Teaching-Faculty"target="_blank">
+            🌐 View Site
+        </a>
+    </div>
+
+    <!-- FLIPKART -->
+    <div class="card">
+        <div class="icon">🛍️</div>
+        <h2>Flipkart</h2>
+        <p>Product listing scraping</p>
+
+        <a class="btn" href="/flipkart">📊 View Table</a>
+        <a class="btn" href="https://www.flipkart.com"target="_blank">
+            🌐 View Site
+        </a>
+    </div>
+
+</div>
+
+<div style="text-align:center;">
+    <a class="back" href="/web-scraping">← Back</a>
+</div>
+
+</body>
+</html>
+
+</div>

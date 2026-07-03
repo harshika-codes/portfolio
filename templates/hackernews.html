@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hacker News Scraped Data</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0f0f1a;
+    color:white;
+}
+
+/* BACK BUTTON */
+.back{
+    position:fixed;
+    top:15px;
+    left:15px;
+
+    padding:10px 18px;
+    background:#7c4dff;
+    color:white;
+    border-radius:20px;
+    text-decoration:none;
+    z-index:1000;
+}
+
+h1{
+    text-align:center;
+    margin-top:50px;
+    color:#7c4dff;
+    font-size:40px;
+}
+
+/* TABLE */
+table{
+    width:90%;
+    margin:40px auto;
+    border-collapse:collapse;
+    background: rgba(255,255,255,0.05);
+    border-radius:12px;
+    overflow:hidden;
+}
+
+th,td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+th{
+    background:#7c4dff;
+}
+
+tr:hover{
+    background:rgba(124,77,255,0.15);
+}
+
+a{
+    color:#7c4dff;
+}
+
+/* COMMENTS STYLE */
+.comment{
+    color:#ffcc70;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACK -->
+<a href="/static-scraping" class="back">← Back</a>
+
+<h1>📰 Hacker News Scraped Data</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Comments</th>
+        <th>Link</th>
+    </tr>
+
+    {% for item in news %}
+    <tr>
+        <td>{{ item.title }}</td>
+        <td class="comment">{{ item.comments }}</td>
+        <td><a href="{{ item.link }}" target="_blank">Open</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

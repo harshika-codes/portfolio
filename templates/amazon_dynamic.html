@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Amazon Data</title>
+
+<style>
+body{background:#111;color:white;font-family:Arial;}
+table{width:90%;margin:auto;border-collapse:collapse;}
+th,td{border:1px solid #333;padding:10px;}
+th{background:#7c4dff;}
+.back{text-align:center;margin:20px;}
+a{color:#7c4dff;}
+</style>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">🛒 Amazon Scraped Data</h2>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Price</th>
+</tr>
+
+{% for item in data %}
+<tr>
+<td>{{ item.name }}</td>
+<td>{{ item.price }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<div class="back">
+    <a href="/scrap">← Back</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Web Scraping</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+    color: white;
+    margin: 0;
+}
+
+/* HEADER */
+.hero{
+    text-align:center;
+    padding:50px 20px 20px;
+}
+
+.hero h1{
+    color:#7c4dff;
+    font-size:44px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    opacity:0.8;
+}
+
+/* CONTAINER */
+.container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+/* CARD */
+.card{
+    width:270px;
+    height:210px;
+    padding:25px;
+    border-radius:18px;
+
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 0 30px rgba(124,77,255,0.5);
+}
+
+/* ICON */
+.icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+/* BIG HEADINGS */
+.card h2{
+    font-size:26px;   /* 👈 BIG TITLE */
+    font-weight:bold;
+    margin:5px 0;
+}
+
+/* DESCRIPTION */
+.card p{
+    font-size:14px;
+    opacity:0.85;
+    text-align:center;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:15px;
+    padding:8px 18px;
+    border-radius:20px;
+    background:#7c4dff;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+/* BACK BUTTON */
+.back{
+    display:inline-block;
+    margin:50px auto;
+    padding:12px 25px;
+    background:#7c4dff;
+    border-radius:25px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>🌐 Web Scraping Types</h1>
+    <p>Click to explore scraping methods</p>
+</div>
+
+<div class="container">
+
+    <!-- STATIC -->
+    <div class="card">
+        <div class="icon">📄</div>
+        <h2>STATIC</h2>
+        <p>BeautifulSoup based scraping</p>
+
+        <a class="btn" href="/static-scraping">
+            View Scraping →
+        </a>
+    </div>
+
+    <!-- DYNAMIC -->
+    <div class="card">
+        <div class="icon">⚡</div>
+        <h2>DYNAMIC</h2>
+        <p>Selenium based scraping</p>
+
+        <a class="btn" href="/dynamic-scraping">
+            View Scraping →
+        </a>
+    </div>
+
+    <!-- API -->
+    <div class="card">
+        <div class="icon">🔗</div>
+        <h2>API</h2>
+        <p>Requests + JSON APIs</p>
+
+        <a class="btn" href="/api">View APIs</a>
+            
+     
+    </div>
+
+</div>
+
+<!-- BACK BUTTON -->
+<div style="text-align:center;">
+    <a class="back" href="/learn-more">← Back</a>
+</div>
+
+</body>
+</html>
