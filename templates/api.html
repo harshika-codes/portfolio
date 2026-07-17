@@ -33,16 +33,17 @@ h1{
     padding:20px;
 }
 
+/* CARD */
 .card{
-    width:260px;
-    height:210px;
-    padding:20px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border-radius:18px;
-    box-shadow:0 0 20px rgba(124,77,255,0.25);
-    transition:0.3s;
+    width:280px;
+    min-height:280px;
+    padding:25px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(124,77,255,.25);
+    transition:.3s;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -51,23 +52,26 @@ h1{
 }
 
 .card:hover{
-    transform:translateY(-8px) scale(1.05);
-    box-shadow:0 0 35px rgba(124,77,255,0.6);
+    transform:translateY(-8px);
+    box-shadow:0 0 35px rgba(124,77,255,.6);
 }
 
+/* ICON */
 .icon{
-    font-size:40px;
-    margin-bottom:10px;
+    font-size:45px;
+    margin-bottom:15px;
 }
 
+/* TITLE */
 .card h2{
+    margin:10px 0;
     font-size:22px;
-    margin:5px 0;
 }
 
+/* TEXT */
 .card p{
-    font-size:13px;
-    opacity:0.85;
+    opacity:.85;
+    margin-bottom:18px;
 }
 
 .btn{
@@ -112,13 +116,23 @@ h1{
 
 <div class="container">
 
-    <div class="card">
+    <<div class="card">
     <div class="icon">📘</div>
     <h2>Gyan Setu API</h2>
     <p>Learning and education related API data</p>
 
     <a class="btn" href="/gyan-setu">📊 View Table</a>
-    <a class="btn" href="https://gyansetu.codroidhub.com/courses" target="_blank">🌐 View Site</a>
+
+    <div class="bottom-buttons">
+    <a class="btn" href="https://gyansetu.codroidhub.com/courses" target="_blank">
+        🌐 View Site
+    </a>
+
+    <a class="btn" href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/APIs%20scraping/Gyansetu.ipynb" target="_blank"
+        class="small-btn">
+        📓 Notebook
+    </a>
+    </div>
 </div>
 
     <div class="card">
@@ -126,7 +140,15 @@ h1{
         <h2>Products API</h2>
         <p>Product data like name and price</p>
         <a class="btn" href="/products-api">📊 View Table</a>
+
+        <div class="bottom-buttons">
         <a class="btn" href="https://dummyjson.com/docs/products?utm_source=chatgpt.com" target="_blank">🌐 View Site</a>
+
+         <a class="btn" href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/APIs%20scraping/Product_api.ipynb" target="_blank"
+        class="small-btn">
+        📓  Notebook
+         </a>
+        </div>
     </div>
 
     <div class="card">
@@ -138,10 +160,16 @@ h1{
     <a class="btn" href="/currency-api">
         📊 View Currency
     </a>
-    
+    <div class="bottom-buttons">
     <a class="btn" href="https://www.exchangerate-api.com/" target="_blank">
         🌐 View Site
     </a>
+
+     <a class="btn" href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/APIs%20scraping/Currency_api.ipynb" target="_blank"
+        class="small-btn">
+        📓Notebook
+    </a>
+    </div>
 </div>
 
     <div class="card">
@@ -150,7 +178,15 @@ h1{
     <p>Country name, capital, region, population and flag data</p>
 
     <a class="btn" href="/countries-api" rel="noopener noreferrer">📊 View Table</a>
+
+    <div class="bottom-buttons">
     <a class="btn" href="https://restcountries.com/" target="_blank" rel="noopener noreferrer">🌐 View site</a>
+
+     <a class="btn" href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/APIs%20scraping/Rest_contries_API.ipynb" target="_blank"
+        class="small-btn">
+        📓 Notebook
+    </a>
+    </div>
 </div>
 
     <div class="card">
@@ -158,7 +194,16 @@ h1{
         <h2>JSON Placeholder</h2>
         <p>Fake posts and testing API data</p>
        <a class="btn" href="/jsonplaceholder-api">📊 View Table</a>
+
+       <div class="bottom-buttons">
         <a class="btn" href="https://jsonplaceholder.typicode.com/" target="_blank">🌐 View Site</a>
+
+        
+     <a class="btn" href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/APIs%20scraping/jsonplaceholder%20(1).ipynb" target="_blank"
+        class="small-btn">
+        📓 Notebook
+    </a>
+       </div>
     </div>
 
 </div>

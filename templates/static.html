@@ -6,24 +6,25 @@
 <style>
 
 body{
-    font-family: Arial;
-    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
-    color: white;
-    margin: 0;
+    font-family:Arial,sans-serif;
+    background:radial-gradient(circle at top,#1a1a2e,#0f0f1a);
+    color:white;
+    margin:0;
 }
 
 /* HEADER */
 h1{
     text-align:center;
     margin-top:40px;
-    font-size:38px;
+    font-size:42px;
     color:#7c4dff;
 }
 
 .sub{
     text-align:center;
-    opacity:0.8;
-    margin-top:5px;
+    opacity:.8;
+    margin-top:8px;
+    font-size:20px;
 }
 
 /* CONTAINER */
@@ -31,67 +32,64 @@ h1{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:25px;
+    gap:30px;
     margin-top:50px;
     padding:20px;
 }
 
 /* CARD */
 .card{
-    width:260px;
-    height:210px;
-    padding:20px;
+    width:280px;
+    min-height:270px;
+    padding:25px;
 
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
 
-    border-radius:18px;
-    box-shadow:0 0 20px rgba(124,77,255,0.25);
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(124,77,255,.25);
 
-    transition:0.3s;
+    transition:.3s;
 
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
 }
 
 .card:hover{
-    transform:translateY(-8px) scale(1.05);
-    box-shadow:0 0 35px rgba(124,77,255,0.6);
+    transform:translateY(-8px);
+    box-shadow:0 0 35px rgba(124,77,255,.5);
 }
 
-/* ICON */
 .icon{
-    font-size:40px;
-    margin-bottom:10px;
+    font-size:45px;
+    margin-bottom:15px;
 }
 
-/* TITLE */
 .card h2{
+    margin:10px 0;
     font-size:22px;
-    margin:5px 0;
 }
 
-/* TEXT */
 .card p{
-    font-size:13px;
-    opacity:0.85;
+    opacity:.8;
+    margin-bottom:18px;
 }
 
-/* BUTTONS */
+/* MAIN BUTTON */
 .btn{
     display:inline-block;
-    margin:6px 5px 0 5px;
-    padding:7px 12px;
-    border-radius:20px;
     background:#7c4dff;
     color:white;
-    font-size:13px;
     text-decoration:none;
-    transition:0.3s;
+    padding:10px 18px;
+    border-radius:25px;
+    font-size:14px;
+    margin:5px 0;
+    transition:.3s;
 }
 
 .btn:hover{
@@ -99,7 +97,36 @@ h1{
     transform:scale(1.05);
 }
 
-/* BACK */
+/* NOTEBOOK & SITE BUTTONS */
+.buttons{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+
+.small-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.small-btn{
+    background:#7c4dff;
+    color:white;
+    text-decoration:none;
+    padding:9px 15px;
+    border-radius:22px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.small-btn:hover{
+    background:#5a2fd6;
+    transform:scale(1.05);
+}
+
+/* BACK BUTTON */
 .back{
     display:inline-block;
     margin:50px auto;
@@ -108,12 +135,11 @@ h1{
     border-radius:25px;
     color:white;
     text-decoration:none;
-    transition:0.3s;
+    transition:.3s;
 }
 
 .back:hover{
     background:#5a2fd6;
-    transform:scale(1.05);
 }
 
 </style>
@@ -124,67 +150,173 @@ h1{
 <h1>📄 Static Scraping Websites</h1>
 <p class="sub">BeautifulSoup based real scraping projects</p>
 
+
 <div class="container">
 
     <!-- AMAZON -->
     <div class="card">
-        <div class="icon">🛒</div>
-        <h2>Test Sites Laptop</h2>
-        <p>Product data scraping</p>
+    <div class="icon">🛒</div>
+    <h2>Test Sites Laptop</h2>
+    <p>Product data scraping</p>
 
-        <a class="btn" href="/amazon">📊 View Table</a>
-        <a class="btn" href="https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops" target="_blank">
-            🌐 View Site
+    <div class="buttons">
+
+        <a href="/amazon" class="btn">
+            📊 View Table
         </a>
+
+        <div class="small-buttons">
+
+            <a href="https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops"
+               target="_blank"
+               class="small-btn">
+               🌐 View Site
+            </a>
+
+            <a href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/Static%20web%20scraping/Test_Sites.ipynb"
+               target="_blank"
+               class="small-btn">
+               📒 Notebook
+            </a>
+
+        </div>
+
     </div>
+</div>
 
     <!-- HACKER NEWS -->
     <div class="card">
-        <div class="icon">📰</div>
-        <h2>Hacker News</h2>
-        <p>News titles & links</p>
 
-        <a class="btn" href="/hackernews">📊 View Table</a>
-        <a class="btn" href="https://news.ycombinator.com/" target="_blank">
-            🌐 View Site
+    <div class="icon">📰</div>
+
+    <h2>Hacker News</h2>
+
+    <p>News titles & links</p>
+
+    <div class="buttons">
+
+        <a href="/hackernews" class="btn">
+            📊 View Table
         </a>
+
+        <div class="small-buttons">
+
+            <a href="https://news.ycombinator.com/" target="_blank" class="small-btn">
+                🌐 View Site
+            </a>
+
+            <a href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/Static%20web%20scraping/Hacker%20news.ipynb"
+               target="_blank"
+               class="small-btn">
+                📒 Notebook
+            </a>
+
+        </div>
+
     </div>
 
+</div>
     <!-- COLLEGE -->
     <div class="card">
-        <div class="icon">🎓</div>
-        <h2>Collegedunia</h2>
-        <p>College info scraping</p>
+    <div class="icon">🎓</div>
 
-        <a class="btn" href="/collegedunia">📊 View Table</a>
-        <a class="btn" href="https://collegedunia.com/"target="_blank">
-            🌐 View Site
+    <h2>Collegedunia</h2>
+
+    <p>College info scraping</p>
+
+    <div class="buttons">
+
+        <a href="/collegedunia" class="btn">
+            📊 View Table
         </a>
+
+        <div class="small-buttons">
+
+            <a href="https://collegedunia.com/"
+               target="_blank"
+               class="small-btn">
+               🌐 View Site
+            </a>
+
+            <a href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/Static%20web%20scraping/colleges%20(1).ipynb"
+               target="_blank"
+               class="small-btn">
+               📒 Notebook
+            </a>
+
+        </div>
+
     </div>
+
+</div>
 
     <!-- SCHOOL -->
     <div class="card">
-        <div class="icon">🏫</div>
-        <h2>DAV School</h2>
-        <p>School data scraping</p>
+    <div class="icon">🏫</div>
 
-        <a class="btn" href="/dav-faculty">📊 View Table</a>
-        <a class="btn" href="http://davpsr.in/ACF50813-80CC-47E7-B816-72DC22D44C78/CMS/Page/Teaching-Faculty"target="_blank">
-            🌐 View Site
+    <h2>DAV School</h2>
+
+    <p>School data scraping</p>
+
+    <div class="buttons">
+
+        <a href="/dav-faculty" class="btn">
+            📊 View Table
         </a>
+
+        <div class="small-buttons">
+
+            <a href="http://davpsr.in/ACF50813-80CC-47E7-B816-72DC22D44C78/CMS/Page/Teaching-Faculty"
+               target="_blank"
+               class="small-btn">
+               🌐 View Site
+            </a>
+
+            <a href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/Static%20web%20scraping/DAV%20faculty%20web%20scrapping.ipynb"
+               target="_blank"
+               class="small-btn">
+               📒 Notebook
+            </a>
+
+        </div>
+
     </div>
+
+</div>
 
     <!-- FLIPKART -->
     <div class="card">
-        <div class="icon">🛍️</div>
-        <h2>Flipkart</h2>
-        <p>Product listing scraping</p>
+    <div class="icon">🛍️</div>
 
-        <a class="btn" href="/flipkart">📊 View Table</a>
-        <a class="btn" href="https://www.flipkart.com"target="_blank">
-            🌐 View Site
+    <h2>Flipkart</h2>
+
+    <p>Product listing scraping</p>
+
+    <div class="buttons">
+
+        <a href="/flipkart" class="btn">
+            📊 View Table
         </a>
+
+        <div class="small-buttons">
+
+            <a href="https://www.flipkart.com"
+               target="_blank"
+               class="small-btn">
+               🌐 View Site
+            </a>
+
+            <a href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/Static%20web%20scraping/flipcart.ipynb"
+               target="_blank"
+               class="small-btn">
+               📒 Notebook
+            </a>
+
+        </div>
+
     </div>
+
+</div>
 
 </div>
 

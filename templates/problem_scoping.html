@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Problem Scoping</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:radial-gradient(circle at top,#1a1a2e,#0f0f1a);
+color:white;
+}
+
+/* HEADER */
+
+.hero{
+text-align:center;
+padding:60px 20px 20px;
+}
+
+.hero h1{
+font-size:46px;
+color:#9b5cff;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+color:#d0d0d0;
+}
+
+/* CARD CONTAINER */
+
+.container{
+max-width:1200px;
+margin:50px auto;
+display:flex;
+justify-content:center;
+align-items:stretch;
+flex-wrap:wrap;
+gap:35px;
+padding:0 20px;
+}
+
+/* CARD */
+
+.card{
+width:330px;
+min-height:320px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+border-radius:20px;
+padding:30px;
+backdrop-filter:blur(12px);
+
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+text-align:center;
+
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(124,77,255,.55);
+}
+
+.icon{
+font-size:55px;
+margin-bottom:15px;
+}
+
+.card h2{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.card p{
+font-size:16px;
+line-height:1.6;
+color:#ddd;
+}
+
+/* BUTTON */
+
+.btn{
+margin-top:20px;
+padding:12px 24px;
+background:#7c4dff;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+
+.btn:hover{
+background:#5a2fd6;
+transform:scale(1.05);
+}
+
+/* BACK BUTTON */
+
+.back-container{
+display:flex;
+justify-content:center;
+margin:60px 0;
+}
+
+.back{
+padding:14px 35px;
+background:#7c4dff;
+border-radius:30px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:.3s;
+}
+
+.back:hover{
+background:#5a2fd6;
+transform:scale(1.05);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+<h1>🧩 Problem Scoping Projects</h1>
+<p>Explore AI & Machine Learning Problem Scoping Projects</p>
+</div>
+
+<div class="container">
+
+<!-- Placement Prediction -->
+
+<div class="card">
+
+<div class="icon">🎯</div>
+
+<h2>Placement Prediction System</h2>
+
+<p>
+Machine Learning project for predicting student placement using academic performance and skills.
+</p>
+
+<a class="btn"
+href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/problem-scoping/placement%20prediction.pdf"
+target="_blank">
+
+View Project →
+
+</a>
+
+</div>
+
+<!-- Policy Compliance -->
+
+<div class="card">
+
+<div class="icon">📄</div>
+
+<h2>Policy Compliance Checker</h2>
+
+<p>
+AI-powered system that analyzes policy documents and generates compliance reports automatically.
+</p>
+
+<a class="btn"
+href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/problem-scoping/problem%20scoping.pdf"
+target="_blank">
+
+View Project →
+
+</a>
+
+</div>
+
+<!-- Sales Prediction -->
+
+<div class="card">
+
+<div class="icon">📈</div>
+
+<h2>Sales Prediction System</h2>
+
+<p>
+Machine Learning model for forecasting future sales using historical business data.
+</p>
+
+<a class="btn"
+href="https://github.com/harshika-codes/AIML-Bootcamp/blob/main/problem-scoping/sales%20prediction.pdf"
+target="_blank">
+
+View Project →
+
+</a>
+
+</div>
+
+</div>
+
+<div class="back-container">
+<a href="/learn-more" class="back">⬅ Back</a>
+</div>
+
+</body>
+</html>
